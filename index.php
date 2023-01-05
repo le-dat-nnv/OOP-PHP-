@@ -16,19 +16,9 @@ include './App/view/slider_show/exam.php';
 //use model\BaselModel;
 switch ($url) {
     case "exam":
-//        $ctrl = new Controller\Controller();
-//        $ctrl= new exam();
-//        $ctrl->test1();
-//        include './App/view/slider_show/exam.php';
-//        include './App/controller/slideController.php';
         $ctrl= new exam();
         $ctrl->test2();
         break;
-//    case "our_room":
-//        $ctrl = new test();
-//        var_dump($ctrl);
-//        echo $ctrl->index();
-//        break;
     default:
         break;
 }
