@@ -23,31 +23,6 @@ class BaselModel {
         return $th;
     }
 
-//    public static function insert() {
-//        $model = new static();
-//        $model->queryBuilder = "insert into exam_five.$model->table (";
-//        foreach ($model->columns as $col) {
-//            if ($model->$col == null) {
-//                echo "loiix";
-//                continue;
-//            }
-//            $model->queryBuilder .= "$col, ";
-//        }
-//        $model->queryBuilder = rtrim($model->queryBuilder, ", ");
-//        $model->queryBuilder .= ") values ( ";
-//        foreach ($model->columns as $col) {
-//            if ($model->{$col} == null) {
-//                continue;
-//            }
-//            $model->queryBuilder .= "'" . $model->{$col} . "', ";
-//        }
-//        $model->queryBuilder = rtrim($model->queryBuilder, ", ");
-//        $model->queryBuilder .= ")";
-//
-////        $model->connect->prepare($model->queryBuilder);
-//        return $model;
-//    }
-
     public function insert() {
         $this->queryBuilder = "insert into exam_five.$this->table (";
         foreach ($this->columns as $col) {
@@ -66,18 +41,7 @@ class BaselModel {
         }
         $this->queryBuilder = rtrim($this->queryBuilder, ", ");
         $this->queryBuilder .= ")";
-//        $this->connect->prepare($this->queryBuilder);
         return $this;
-//        $stmt = $this->connect->prepare($this->queryBuilder);
-//        try {
-//
-//            $stmt->execute();
-//            $this->id = $this->connect->lastInsertId();
-//            return $this;
-//        } catch (Exception $ex) {
-//            var_dump($ex->getMessage());
-//            die;
-//        }
     }
 
     public static function table($nameTable) {
@@ -123,37 +87,9 @@ class BaselModel {
     public static function where($id, $values) {
         $model = new static();
         $model->queryBuilder = "select * from exam_five.$model->table where $id=" . $values;
-//        if (count($arr) == 2) {
-//            $model->queryBuilder .= "$arr[0] = '$arr[1]' ";
-//        }
-//
-//        if (count($arr) == 3) {
-//            $model->queryBuilder .= "$arr[0] $arr[1] '$arr[2]' ";
-//        }
         return $model;
     }
 
-//    public function insert2($arr=[]) {
-//        $this->queryBuilder = "insert into exam_five.$this->table (";
-//        foreach ($arr as $col) {
-//            if ($col == null) {
-//                continue;
-//            }
-//            $this->queryBuilder .= "$col, ";
-//        }
-//        $this->queryBuilder = rtrim($this->queryBuilder, ", ");
-//        $this->queryBuilder .= ") values ( ";
-//        foreach ($arr as $col) {
-//            if ($col == null) {
-//                continue;
-//            }
-//            $this->queryBuilder .= "'" . $this->{$col} . "', ";
-//        }
-//        $this->queryBuilder = rtrim($this->queryBuilder, ", ");
-//        $this->queryBuilder .= ")";
-////        $this->connect->prepare($this->queryBuilder);
-//        return $this;
-//    }
 
     public function get() {
         // var_dump($this->queryBuilder);die;
