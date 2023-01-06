@@ -1,8 +1,5 @@
 <?php
-
-class BaselModel {
-
-    public $connect;
+class BaselModel{
 
     public function __construct() {
         $host = "localhost";
@@ -13,7 +10,7 @@ class BaselModel {
         $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $this->connect;
     }
-
+    
     public static function get_db() {
         $model = new static;
         $query = "select * from " . $model->table;
@@ -22,31 +19,6 @@ class BaselModel {
         $th = $tv->fetchAll();
         return $th;
     }
-
-//    public static function insert() {
-//        $model = new static();
-//        $model->queryBuilder = "insert into exam_five.$model->table (";
-//        foreach ($model->columns as $col) {
-//            if ($model->$col == null) {
-//                echo "loiix";
-//                continue;
-//            }
-//            $model->queryBuilder .= "$col, ";
-//        }
-//        $model->queryBuilder = rtrim($model->queryBuilder, ", ");
-//        $model->queryBuilder .= ") values ( ";
-//        foreach ($model->columns as $col) {
-//            if ($model->{$col} == null) {
-//                continue;
-//            }
-//            $model->queryBuilder .= "'" . $model->{$col} . "', ";
-//        }
-//        $model->queryBuilder = rtrim($model->queryBuilder, ", ");
-//        $model->queryBuilder .= ")";
-//
-////        $model->connect->prepare($model->queryBuilder);
-//        return $model;
-//    }
 
     public function insert() {
         $this->queryBuilder = "insert into exam_five.$this->table (";
@@ -132,36 +104,14 @@ class BaselModel {
 //        }
         return $model;
     }
-
-//    public function insert2($arr=[]) {
-//        $this->queryBuilder = "insert into exam_five.$this->table (";
-//        foreach ($arr as $col) {
-//            if ($col == null) {
-//                continue;
-//            }
-//            $this->queryBuilder .= "$col, ";
-//        }
-//        $this->queryBuilder = rtrim($this->queryBuilder, ", ");
-//        $this->queryBuilder .= ") values ( ";
-//        foreach ($arr as $col) {
-//            if ($col == null) {
-//                continue;
-//            }
-//            $this->queryBuilder .= "'" . $this->{$col} . "', ";
-//        }
-//        $this->queryBuilder = rtrim($this->queryBuilder, ", ");
-//        $this->queryBuilder .= ")";
-////        $this->connect->prepare($this->queryBuilder);
-//        return $this;
-//    }
-
     public function get() {
-        // var_dump($this->queryBuilder);die;
-        $stmt = $this->connect->prepare($this->queryBuilder);
+        $connects = database::connectDb();
+        $stmt = $connects->prepare($this->queryBuilder);
         $stmt->execute();
         $rs = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($this));
         return $rs;
     }
+    
 
 }
 

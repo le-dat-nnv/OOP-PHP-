@@ -1,4 +1,5 @@
 <?php
+require_once './App/lib/database.php';
 require_once './App/model/BaselModel.php';
 require_once './App/controller/slideController.php';
 require_once './App/model/test.php';
@@ -9,7 +10,6 @@ $url = isset($_GET['url']) ? $_GET['url'] : "/";
 //require './Common/database-config.php';
 //use App\Controller\slide_showController;
 //use App\Controller\test;
-include './App/view/slider_show/exam.php';
 //use App\Controller;
 //use App\slideController;
 //use model\DB;
@@ -22,13 +22,17 @@ switch ($url) {
 //        include './App/view/slider_show/exam.php';
 //        include './App/controller/slideController.php';
         $ctrl= new exam();
-        $ctrl->test2();
+        $ctrl->test3();
         break;
-//    case "our_room":
-//        $ctrl = new test();
-//        var_dump($ctrl);
-//        echo $ctrl->index();
-//        break;
+    case "bai1":
+        include './App/oop/bai1.php';
+        break;
+    case "bai2":
+        include './App/oop/bai2.php';
+        break;
+    case '/':
+        include './knowlage.php';
+        break;
     default:
         break;
 }
