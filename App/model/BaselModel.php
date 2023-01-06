@@ -38,18 +38,7 @@ class BaselModel{
         }
         $this->queryBuilder = rtrim($this->queryBuilder, ", ");
         $this->queryBuilder .= ")";
-//        $this->connect->prepare($this->queryBuilder);
         return $this;
-//        $stmt = $this->connect->prepare($this->queryBuilder);
-//        try {
-//
-//            $stmt->execute();
-//            $this->id = $this->connect->lastInsertId();
-//            return $this;
-//        } catch (Exception $ex) {
-//            var_dump($ex->getMessage());
-//            die;
-//        }
     }
 
     public static function table($nameTable) {
@@ -95,15 +84,13 @@ class BaselModel{
     public static function where($id, $values) {
         $model = new static();
         $model->queryBuilder = "select * from exam_five.$model->table where $id=" . $values;
-//        if (count($arr) == 2) {
-//            $model->queryBuilder .= "$arr[0] = '$arr[1]' ";
-//        }
-//
-//        if (count($arr) == 3) {
-//            $model->queryBuilder .= "$arr[0] $arr[1] '$arr[2]' ";
-//        }
         return $model;
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e3deb6af50a91a1154902800bdbd0aebbf85c762
     public function get() {
         $connects = database::connectDb();
         $stmt = $connects->prepare($this->queryBuilder);

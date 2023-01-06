@@ -16,11 +16,6 @@ $url = isset($_GET['url']) ? $_GET['url'] : "/";
 //use model\BaselModel;
 switch ($url) {
     case "exam":
-//        $ctrl = new Controller\Controller();
-//        $ctrl= new exam();
-//        $ctrl->test1();
-//        include './App/view/slider_show/exam.php';
-//        include './App/controller/slideController.php';
         $ctrl= new exam();
         $ctrl->test3();
         break;

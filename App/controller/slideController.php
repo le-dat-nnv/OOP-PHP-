@@ -1,5 +1,6 @@
 <?php
 class exam {
+<<<<<<< HEAD
 //function test1() {
 //    $models = new db();
 //    //3 cap nhatdu lieu tu form vao model
@@ -15,6 +16,8 @@ function test3() {
     $models->ma_room = $_POST['id'];
     $models->insert()->get();
 }
+=======
+>>>>>>> e3deb6af50a91a1154902800bdbd0aebbf85c762
 function test2() {
     $models = new test();
 //    //3 cap nhat du lieu tu form vao model
